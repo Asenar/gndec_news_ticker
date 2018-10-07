@@ -55,6 +55,20 @@ $.fn.extend({
                     scrollnews(residualSpace, residualTime);
                 });
 
+
+            $.fn.liScroll = {
+                toggle : function() {
+                    if ($strip.is(":animated")) {
+                        $strip.stop()
+                    } else {
+                        var offset = jQuery($strip).offset();
+                        var residualSpace = offset.left + stripWidth;
+                        var residualTime = residualSpace/settings.travelocity;
+                        scrollnews(residualSpace, residualTime);
+                        return $strip;
+                    }
+                }
+            };
         });
     }
 });
